@@ -59,6 +59,9 @@
   var curLineStart, nextLineStart, curIndent, lastEndLoc, sourceFile;
 
   function next(forceRegexp) {
+    if(options.onToken) {
+      options.onToken(new acorn.Token());
+    }  
     lastEnd = token.end;
     if (options.locations)
       lastEndLoc = token.endLoc;
